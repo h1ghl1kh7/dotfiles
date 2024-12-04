@@ -51,3 +51,8 @@ mapKey("<S-A-c>", ":SimpleNoteCreate<CR>")
 mapKey("<C-W>m", ":WinShift<CR>")
 
 mapKey("<leader>c.", ":cd %:h<CR>")
+
+mapKey("<leader>mk", ":MarkdownPreview<CR>")
+
+mapKey("J", "10j")
+mapKey("K", "10k")

@@ -7,7 +7,7 @@ vim.opt.fileencoding = "utf-8"
 vim.g.floaterm_width = 0.95
 vim.g.floaterm_height = 0.95
 vim.g.floaterm_title = ""
-vim.g.floaterm_shell = "/usr/local/bin/fish"
+vim.g.floaterm_shell = "/usr/bin/fish"
 vim.g.floaterm_autoclose = 2
 
 vim.opt.number = true
@@ -51,3 +51,5 @@ vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 if vim.fn.has("nvim-0.8") == 1 then
 	vim.opt.cmdheight = 0
 end
+
+vim.opt.clipboard = 'unnamedplus' -- clipboard setting

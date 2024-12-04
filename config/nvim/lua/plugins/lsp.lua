@@ -1,8 +1,6 @@
 local keyMapper = require("utils.keyMapper").mapKey
 local servers = {
 	"lua_ls",
-	"tsserver",
-	"gopls",
 	"pyright",
 	"jedi_language_server",
 	"pylsp",
@@ -10,7 +8,6 @@ local servers = {
 	"cmake",
 	"autotools_ls",
 	"marksman",
-	"r_language_server",
 	"lemminx",
 	"jsonls",
 	"dockerls",

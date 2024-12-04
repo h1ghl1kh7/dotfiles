@@ -36,19 +36,6 @@ return {
 	},
 
 	{
-		"dinhhuy258/git.nvim",
-		event = "BufReadPre",
-		opts = {
-			keymaps = {
-				-- Open blame window
-				blame = "<Leader>gb",
-				-- Open file/folder in git repository
-				browse = "<Leader>go",
-			},
-		},
-	},
-
-	{
 		"telescope.nvim",
 		dependencies = {
 			{
@@ -198,38 +185,47 @@ return {
 					},
 				},
 			}
-			opts.extensions = {
-				file_browser = {
-					theme = "dropdown",
-					-- disables netrw and use telescope-file-browser in its place
-					hijack_netrw = true,
-					mappings = {
-						-- your custom insert mode mappings
-						["n"] = {
-							-- your custom normal mode mappings
-							["N"] = fb_actions.create,
-							["h"] = fb_actions.goto_parent_dir,
-							["/"] = function()
-								vim.cmd("startinsert")
-							end,
-							["<C-u>"] = function(prompt_bufnr)
-								for i = 1, 10 do
-									actions.move_selection_previous(prompt_bufnr)
-								end
-							end,
-							["<C-d>"] = function(prompt_bufnr)
-								for i = 1, 10 do
-									actions.move_selection_next(prompt_bufnr)
-								end
-							end,
-							["<PageUp>"] = actions.preview_scrolling_up,
-							["<PageDown>"] = actions.preview_scrolling_down,
+			opts.extensions =
+				{
+					file_browser = {
+						theme = "dropdown",
+						-- disables netrw and use telescope-file-browser in its place
+						hijack_netrw = true,
+						mappings = {
+							-- your custom insert mode mappings
+							["n"] = {
+								-- your custom normal mode mappings
+								["N"] = fb_actions.create,
+								["h"] = fb_actions.goto_parent_dir,
+								["/"] = function()
+									vim.cmd("startinsert")
+								end,
+								["<C-u>"] = function(prompt_bufnr)
+									for i = 1, 10 do
+										actions.move_selection_previous(prompt_bufnr)
+									end
+								end,
+								["<C-d>"] = function(prompt_bufnr)
+									for i = 1, 10 do
+										actions.move_selection_next(prompt_bufnr)
+									end
+								end,
+								["<PageUp>"] = actions.preview_scrolling_up,
+								["<PageDown>"] = actions.preview_scrolling_down,
+							},
 						},
 					},
-				},
-				cmdline = {},
-			}
-			telescope.setup(opts)
+					cmdline = {
+						completion = {
+							sort_fn = function(a, b)
+								if a == b then
+									return true
+								end
+								return false
+							end,
+						},
+					},
+				}, telescope.setup(opts)
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("file_browser")
 			require("telescope").load_extension("cmdline")
@@ -330,7 +326,7 @@ return {
 					"StatusLineNC",
 					"EndOfBuffer",
 				},
-				extra_groups = {"NeoTreeNormal","NeoTreeNormalNC","NormalFloat"}, -- table: additional groups that should be cleared
+				extra_groups = { "NeoTreeNormal", "NeoTreeNormalNC", "NormalFloat" }, -- table: additional groups that should be cleared
 				exclude_groups = {}, -- table: groups you don't want to clear
 			})
 		end,
