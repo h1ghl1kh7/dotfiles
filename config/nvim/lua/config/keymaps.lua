@@ -2,28 +2,8 @@ local keymap = vim.keymap
 local mapKey = require("utils.keyMapper").mapKey
 local opts = { noremap = true, silent = true }
 
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
-
--- Save with root permission (not working for now)
---vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
-
--- New tab
-keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
--- Split window
-keymap.set("n", "ss", ":split<Return>", opts)
-keymap.set("n", "sv", ":vsplit<Return>", opts)
--- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
-
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
+mapKey("<C-j>", function()
 	vim.diagnostic.goto_next()
 end, opts)
 
@@ -40,11 +20,11 @@ mapKey("<C-q>", "@q")
 mapKey("<S-A-l>", ":SimpleNoteList<CR>")
 mapKey("<S-A-c>", ":SimpleNoteCreate<CR>")
 
+mapKey("<tab>", "<cmd>BufferLineCycleNext<CR>", "n")
+mapKey("<s-tab>", "<cmd>BufferLineCyclePrev<CR>", "n")
+
 mapKey("<C-W>m", ":WinShift<CR>")
 
-mapKey("<leader>c.", ":cd %:h<CR>")
-
-mapKey("<leader>mk", ":MarkdownPreview<CR>")
-
-mapKey("J", "10j")
-mapKey("K", "10k")
+mapKey("<leader>mp", "<cmd>MarkdownPreview<CR>")
+mapKey("<leader>mh", "<cmd>MDHeaders<CR>")
+mapKey("<leader>mc", "<cmd>MDHeadersCurrent<CR>")

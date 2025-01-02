@@ -24,9 +24,3 @@ vim.api.nvim_exec(
 ]],
 	false
 )
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.sage", "*.spyx", "*.pyx" },
-	command = "setfiletype python",
-	group = "filetypedetect",
-})

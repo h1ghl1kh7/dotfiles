@@ -58,7 +58,6 @@ return {
 			position = "right",
 		},
 	},
-
 	{
 		"nvim-cmp",
 		event = { "BufReadPost", "BufNewFile" },
@@ -156,45 +155,6 @@ return {
 		end,
 	},
 	{
-		"max397574/better-escape.nvim",
-		config = function()
-			require("better_escape").setup({
-				timeout = vim.o.timeoutlen,
-				mappings = {
-					i = {
-						j = {
-							-- These can all also be functions
-							k = "<Esc>",
-							j = "<Esc>",
-						},
-					},
-					c = {
-						j = {
-							k = "<Esc>",
-							j = "<Esc>",
-						},
-					},
-					t = {
-						j = {
-							k = "<Esc><Esc>",
-							j = "<Esc>",
-						},
-					},
-					v = {
-						j = {
-							k = "<Esc>",
-						},
-					},
-					s = {
-						j = {
-							k = "<Esc>",
-						},
-					},
-				},
-			})
-		end,
-	},
-	{
 		"mg979/vim-visual-multi",
 		branch = "master",
 		event = "BufReadPost",
@@ -215,6 +175,10 @@ return {
 			require("nvim-surround").setup({
 				-- Configuration here, or leave empty to use defaults
 			})
-		end
+		end,
+	},
+	{
+		"echasnovski/mini.pairs",
+		version = false,
 	},
 }

@@ -23,6 +23,7 @@ return {
 				"python",
 				"asm",
 				"objc",
+				"markdown",
 			},
 
 			sync_install = true,
