@@ -1,4 +1,3 @@
-local keymap = vim.keymap
 local mapKey = require("utils.keyMapper").mapKey
 local opts = { noremap = true, silent = true }
 
@@ -25,6 +24,8 @@ mapKey("<s-tab>", "<cmd>BufferLineCyclePrev<CR>", "n")
 
 mapKey("<C-W>m", ":WinShift<CR>")
 
-mapKey("<leader>mp", "<cmd>MarkdownPreview<CR>")
-mapKey("<leader>mh", "<cmd>MDHeaders<CR>")
-mapKey("<leader>mc", "<cmd>MDHeadersCurrent<CR>")
+mapKey("<leader>mp", "<cmd>MarkdownPreview<CR>", "n")
+mapKey("<leader>mh", "<cmd>MDHeaders<CR>", "n")
+mapKey("<leader>mc", "<cmd>MDHeadersCurrent<CR>", "n")
+
+mapKey("<leader>du", "<cmd>w !dos2unix %<CR><cmd>e!<CR>", "n")
