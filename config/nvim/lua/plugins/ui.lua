@@ -171,7 +171,13 @@ return {
 			})
 		end,
 	},
-	{ "echasnovski/mini.icons", version = false },
+	{
+		"echasnovski/mini.icons",
+		version = false,
+		config = function()
+			require("mini.icons").setup()
+		end,
+	},
 	{
 		"tadaa/vimade",
 		-- default opts (you can partially set these or configure them however you like)
