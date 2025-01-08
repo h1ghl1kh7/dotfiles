@@ -1,8 +1,6 @@
 local keyMapper = require("utils.keyMapper").mapKey
 local servers = {
 	"lua_ls",
-	"pyright",
-	"jedi_language_server",
 	"pylsp",
 	"clangd",
 	"cmake",
@@ -68,8 +66,54 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local lspconfig = require("lspconfig")
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+			local server_configs = {
+				lua_ls = {
+					settings = {
+						Lua = {
+							diagnostics = { globals = { "vim" } },
+							workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+							telemetry = { enable = false },
+						},
+					},
+				},
+				pylsp = {
+					settings = {
+						pylsp = {
+							plugins = {
+								pycodestyle = { enabled = false },
+								pyflakes = { enabled = false },
+								mccabe = { enabled = false },
+								flake8 = { enabled = true },
+							},
+						},
+					},
+				},
+				yamlls = {
+					settings = {
+						yaml = {
+							schemaStore = { enable = true },
+							format = { enable = true },
+							validate = true,
+						},
+					},
+				},
+			}
+
+			local servers_with_custom_settings = vim.tbl_keys(server_configs) -- 커스텀 설정이 있는 서버 목록
+
 			for _, server in ipairs(servers) do
-				lspconfig[server].setup({})
+				if vim.tbl_contains(servers_with_custom_settings, server) then
+					lspconfig[server].setup(vim.tbl_extend("force", {
+						capabilities = capabilities,
+					}, server_configs[server]))
+				else
+					lspconfig[server].setup({
+						capabilities = capabilities,
+						on_attach = on_attach,
+					})
+				end
 			end
 
 			keyMapper("K", vim.lsp.buf.hover)

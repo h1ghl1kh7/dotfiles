@@ -11,6 +11,8 @@ vim.g.floaterm_title = ""
 vim.g.floaterm_shell = "/usr/bin/fish"
 vim.g.floaterm_autoclose = 2
 
+vim.g.mkdp_theme = 'light'
+
 local opt = vim.opt
 
 opt.number = true

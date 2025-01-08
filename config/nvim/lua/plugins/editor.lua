@@ -521,4 +521,40 @@ return {
 		opts = { witdh = 100, height = 50 },
 		ft = { "markdown" }, -- Load only for markdown files.
 	},
+	{
+		"chrisgrieser/nvim-genghis",
+		config = function()
+			-- default config
+			require("genghis").setup({
+				-- default is `"trash"` on Mac/Windows, and `{ "gio", "trash" }` on Linux
+				trashCmd = "trash",
+
+				-- set to empty string to disable
+				-- (some icons are only used for notification plugins like `snacks.nvim`)
+				icons = {
+					chmodx = "󰒃",
+					copyPath = "󰅍",
+					copyFile = "󱉥",
+					duplicate = "",
+					file = "󰈔",
+					move = "󰪹",
+					new = "󰝒",
+					rename = "󰑕",
+					trash = "󰩹",
+				},
+			})
+		end,
+	},
+	{
+		"RaafatTurki/hex.nvim",
+		config = function()
+			require("hex").setup({
+				-- cli command used to dump hex data
+				dump_cmd = "xxd -g 1 -u",
+
+				-- cli command used to assemble from hex data
+				assemble_cmd = "xxd -r",
+			})
+		end,
+	},
 }
