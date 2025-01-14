@@ -73,6 +73,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.live_grep({
 						additional_args = { "--hidden" },
+						search_dirs = { vim.fn.expand("%:p:h") },
 					})
 				end,
 				desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
@@ -113,7 +114,7 @@ return {
 				";s",
 				function()
 					local builtin = require("telescope.builtin")
-					builtin.treesitter()
+					builtin.lsp_workspace_symbols()
 				end,
 				desc = "Lists Function names, variables, from Treesitter",
 			},
