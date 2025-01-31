@@ -1,5 +1,5 @@
 vim.g.mapleader = ","
-vim.g.maplocalleader = "\\" -- local leader
+vim.g.maplocalleader = ";" -- local leader
 vim.g.lazyvim_picker = "auto"
 
 vim.opt.encoding = "utf-8"
