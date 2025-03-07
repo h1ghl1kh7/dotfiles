@@ -29,3 +29,6 @@ mapKey("<leader>mh", "<cmd>MDHeaders<CR>", "n")
 mapKey("<leader>mc", "<cmd>MDHeadersCurrent<CR>", "n")
 
 mapKey("<leader>du", "<cmd>w !dos2unix %<CR><cmd>e!<CR>", "n")
+
+mapKey("<", "<gv", "v")
+mapKey(">", ">gv", "v")

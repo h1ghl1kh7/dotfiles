@@ -78,6 +78,7 @@ return {
 			local luasnip = require("luasnip")
 			require("luasnip.loaders.from_vscode").lazy_load()
 			cmp.setup({
+        preselect = cmp.PreselectMode.None,
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
@@ -95,7 +96,7 @@ return {
 						local col = vim.fn.col(".") - 1
 
 						if cmp.visible() then
-							cmp.select_next_item(select_opts)
+							cmp.select_next_item()
 						elseif col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
 							fallback()
 						else
@@ -180,8 +181,8 @@ return {
 	{
 		"echasnovski/mini.pairs",
 		version = false,
-    config = function()
-      require("mini.pairs").setup()
-    end
+		config = function()
+			require("mini.pairs").setup()
+		end,
 	},
 }

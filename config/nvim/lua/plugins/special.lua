@@ -51,19 +51,16 @@ return {
 						j = {
 							-- These can all also be functions
 							k = "<Esc>",
-							j = "<Esc>",
 						},
 					},
 					c = {
 						j = {
 							k = "<Esc>",
-							j = "<Esc>",
 						},
 					},
 					t = {
 						j = {
 							k = "<Esc><Esc>",
-							j = "<Esc>",
 						},
 					},
 					v = {

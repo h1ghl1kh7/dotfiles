@@ -10,6 +10,7 @@ local servers = {
 	"jsonls",
 	"dockerls",
 	"docker_compose_language_service",
+	"gopls",
 }
 
 return {
@@ -99,6 +100,17 @@ return {
 						},
 					},
 				},
+				gopls = {
+					settings = {
+						gopls = {
+							analyses = {
+								unusedparams = true,
+							},
+							staticcheck = true,
+							gofumpt = true,
+						},
+					},
+				},
 			}
 
 			local servers_with_custom_settings = vim.tbl_keys(server_configs) -- 커스텀 설정이 있는 서버 목록
@@ -163,8 +175,8 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					python = { "isort", "black" },
-
-					javascript = { { "prettierd", "prettier" } },
+					javascript = { "prettierd", "prettier" },
+          go = { "gofmt", "goimports" },
 				},
 				-- format_on_save = function(bufnr)
 				-- 	if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

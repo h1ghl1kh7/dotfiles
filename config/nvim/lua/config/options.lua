@@ -35,7 +35,7 @@ opt.smarttab = true
 opt.breakindent = true
 opt.shiftwidth = 2
 opt.tabstop = 2
-opt.wrap = false -- No Wrap lines
+opt.wrap = true -- No Wrap lines
 opt.backspace = { "start", "eol", "indent" }
 opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 opt.splitbelow = true -- Put new windows below current
