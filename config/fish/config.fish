@@ -21,6 +21,7 @@ if command -qv lsd
   alias ls "lsd"
   alias la "lsd -A -l"
   alias ll "lsd -l -g"
+end
 alias g git
 alias vim nvim
 alias v nvim
@@ -48,3 +49,7 @@ switch (uname)
   case '*'
 # Additional PATH modifications
     fish_add_path $HOME/.local/bin
+    fish_add_path $HOME/go/bin
+    fish_add_path /usr/local/go/bin
+end
+
