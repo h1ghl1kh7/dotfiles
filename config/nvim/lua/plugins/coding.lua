@@ -59,7 +59,7 @@ return {
 		},
 	},
 	{
-		"nvim-cmp",
+		"hrsh7th/nvim-cmp",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
 			{

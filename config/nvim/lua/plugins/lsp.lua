@@ -11,6 +11,7 @@ local servers = {
 	"dockerls",
 	"docker_compose_language_service",
 	"gopls",
+	"ts_ls",
 }
 
 return {
@@ -111,6 +112,35 @@ return {
 						},
 					},
 				},
+				ts_ls = {
+					settings = {
+						typescript = {
+							format = {
+								indentSize = 2,
+							},
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+							},
+						},
+						javascript = {
+							format = {
+								indentSize = 2,
+								semicolons = "remove",
+							},
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+							},
+						},
+						completions = {
+							completeFunctionCalls = true,
+						},
+					},
+					on_attach = function(client, bufnr)
+						-- TypeScript 자동 임포트 설정
+						client.server_capabilities.documentFormattingProvider = true
+						-- 여기에 커스텀 키맵 추가 가능
+					end,
+				},
 			}
 
 			local servers_with_custom_settings = vim.tbl_keys(server_configs) -- 커스텀 설정이 있는 서버 목록
@@ -176,7 +206,8 @@ return {
 					lua = { "stylua" },
 					python = { "isort", "black" },
 					javascript = { "prettierd", "prettier" },
-          go = { "gofmt", "goimports" },
+					typescript = { "prettierd", "prettier" },
+					go = { "gofmt", "goimports" },
 				},
 				-- format_on_save = function(bufnr)
 				-- 	if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
