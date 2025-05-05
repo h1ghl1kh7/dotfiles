@@ -1,0 +1,10 @@
+add-auto-load-safe-path /
+source WORKDIR/Pwngdb/pwngdb.py
+source WORKDIR/Pwngdb/angelheap/gdbinit.py
+
+define hook-run
+python
+import angelheap
+angelheap.init_angelheap()
+end
+end

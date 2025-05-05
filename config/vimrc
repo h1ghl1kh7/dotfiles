@@ -1,0 +1,22 @@
+" Tab/Indent settings
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set smartindent
+set nowrap
+
+" Search settings
+set incsearch
+set ignorecase
+set smartcase
+
+" Visual settings
+set number
+set relativenumber
+
+" Miscellaneous settings
+set encoding=utf-8
+set cmdheight=1
+set scrolloff=10
+set mouse+=a

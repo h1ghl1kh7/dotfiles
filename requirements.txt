@@ -1,0 +1,10 @@
+requests
+pwntools
+z3-solver
+capstone
+unicorn
+pyelftools
+keystone-engine
+ROPgadget
+cryptography
+pycryptodome
