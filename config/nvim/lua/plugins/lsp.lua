@@ -12,6 +12,7 @@ local servers = {
 	"docker_compose_language_service",
 	"gopls",
 	"ts_ls",
+	"tinymist",
 }
 
 return {
@@ -27,6 +28,7 @@ return {
 			ensure_installed = {
 				"stylua",
 				"shfmt",
+				"tinymist",
 			},
 		},
 		---@param opts MasonSettings | {ensure_installed: string[]}
@@ -110,6 +112,13 @@ return {
 							staticcheck = true,
 							gofumpt = true,
 						},
+					},
+				},
+				tinymist = {
+					settings = {
+						formatterMode = "typstyle",
+						exportPdf = "onType",
+						semanticTokens = "disable",
 					},
 				},
 				ts_ls = {

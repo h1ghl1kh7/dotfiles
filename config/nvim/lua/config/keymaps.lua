@@ -32,3 +32,5 @@ mapKey("<leader>du", "<cmd>w !dos2unix %<CR><cmd>e!<CR>", "n")
 
 mapKey("<", "<gv", "v")
 mapKey(">", ">gv", "v")
+
+mapKey("<leader>tp", "<cmd>TypstPreview<CR>", "n")

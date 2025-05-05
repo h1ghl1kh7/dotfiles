@@ -137,7 +137,7 @@ return {
 			require("luasnip").setup()
 			local ls = require("luasnip")
 
-			vim.keymap.set({ "i" }, "<C-l>", function()
+			vim.keymap.set({ "i" }, "<C-k>", function()
 				ls.expand()
 			end, { silent = true })
 			vim.keymap.set({ "i", "s" }, "<C-L>", function()
