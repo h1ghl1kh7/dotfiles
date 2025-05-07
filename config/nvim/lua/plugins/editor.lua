@@ -44,7 +44,7 @@ return {
 			},
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-lua/plenary.nvim",
-			"jonarrien/telescope-cmdline.nvim",
+			"h1ghl1kh7/telescope-cmdline.nvim",
 		},
 		keys = {
 			{
