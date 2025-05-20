@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 echo "GDB peda, pwndbg, gef integration"
 
