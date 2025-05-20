@@ -15,7 +15,6 @@ set -gx EDITOR nvim
 set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
 set -g FZF_LEGACY_KEYBINDINGS 0
 set fish_key_bindings fish_user_key_bindings
-set -gx GOROOT /usr/local/go
 
 # Aliases
 if command -qv lsd
@@ -24,50 +23,35 @@ if command -qv lsd
   alias ll "lsd -l -g"
 end
 
-alias ssh "ssh.exe"
-alias ssh-add "ssh-add.exe"
-
-alias e explorer.exe
-alias g git
 alias vim nvim
 alias v nvim
 
 # Path modifications
 fish_add_path $HOME/.local/bin
+fish_add_path /usr/local/bin
 fish_add_path $HOME/.luarocks/bin
-fish_add_path /usr/local/go/bin
-fish_add_path /usr/bin
-fish_add_path /root/go/bin
 
 
 switch (uname)
   case Darwin
 
 # Homebrew setup
-    eval (/usr/local/bin/brew shellenv)
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     fish_add_path /usr/local/opt/binutils/bin
 
-# Ctags alias
-    alias ctags (brew --prefix)"/bin/ctags"
-
 # Ruby setup
-    fish_add_path /usr/local/opt/ruby/bin
+    fish_add_path /opt/homebrew/opt/ruby/bin
     status --is-interactive; and rbenv init - fish | source
 
 # Additional PATH modifications
     fish_add_path /usr/local/opt/gnu-sed/libexec/gnubin
 
-  case '*'
-# Additional PATH modifications
-    fish_add_path $HOME/.local/bin
-    fish_add_path $HOME/go/bin
-    fish_add_path /usr/local/go/bin
 end
 
 fzf_configure_bindings --directory=\ef --git_log=\el --git_status=\es --processes=\ep
 
 # pnpm
-set -gx PNPM_HOME "/root/.local/share/pnpm"
+set -gx PNPM_HOME "/Users/hyilim/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
